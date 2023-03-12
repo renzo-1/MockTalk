@@ -1,13 +1,44 @@
-body {
+body,
+html {
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  height: 100%;
+}
+#root {
+  width: 100%;
+  height: 100vh;
+}
+.fade-to-none {
+  animation: fade-to-none 0.5s ease-in forwards;
+}
+@keyframes fade-to-none {
+  100% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.fadeUp {
+  animation: fade-up 0.4s ease-in forwards;
 }
+@keyframes fade-up {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+}
+
+.rotateHue {
+  animation: rotateHue 6s ease-in-out alternate infinite;
+}
+
+@keyframes rotateHue {
+  to {
+    filter: hue-rotate(180deg);
+  }
+}
+
+/*  */
