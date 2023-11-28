@@ -5,17 +5,16 @@ export const usePageContext = () => {
   return useContext(PageContext);
 };
 const PageProvider = ({ children }) => {
+  // get path (e.g. /fundamentals) and remove first char "/"
   const [currPage, setCurrPage] = useState("");
 
-  // sets the current page navigation
   useEffect(() => {
-    const path = [...window.location.pathname];
-    // remove forward slash of the path (e.g. /technical)
-    path.shift();
-    setCurrPage(
-      path.join("").charAt(0).toUpperCase() + path.splice(1).join("")
-    );
-  }, [window.location.pathname]);
+    const path = window.location.pathname.slice(1);
+    if (window.location.pathname) {
+      setCurrPage(path);
+      console.log("path", path);
+    }
+  }, []);
 
   return (
     <PageContext.Provider value={{ currPage, setCurrPage }}>

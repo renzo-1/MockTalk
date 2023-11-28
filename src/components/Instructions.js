@@ -10,7 +10,6 @@ const Instructions = ({ title, type }) => {
         {title}
       </Heading>
       <UnorderedList
-        // maxW={{ base: "350px", lg: "450px" }}
         pl="10"
         spacing={{ base: "2", lg: "4" }}
       >

@@ -1,12 +1,10 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
-  Switch,
   Flex,
-  Box,
   useColorMode,
 } from "@chakra-ui/react";
 import { usePageContext } from "../features/PageContext";
@@ -16,6 +14,9 @@ const Navbar = () => {
   const { toggleColorMode } = useColorMode();
   const [isDarkMode, setIsDarkMode] = useState();
 
+  const capitalizedCurrPage =
+    currPage.charAt(0).toUpperCase() + currPage.slice(1);
+
   useEffect(() => {
     if (localStorage.getItem("chakra-ui-color-mode") === "light") {
       setIsDarkMode(false);
@@ -23,6 +24,7 @@ const Navbar = () => {
       setIsDarkMode(true);
     }
   }, []);
+
   return (
     <Flex
       maxW="7xl"
@@ -33,7 +35,7 @@ const Navbar = () => {
       display="flex"
       justify="space-between"
       py="8"
-      px={{ base: "5" }}
+      px={{ base: "14", md: "20" }}
       zIndex="1000"
     >
       <Breadcrumb
@@ -50,7 +52,7 @@ const Navbar = () => {
             color="primaryGreen"
             fontWeight="bold"
           >
-            {currPage && currPage}
+            {capitalizedCurrPage}
           </BreadcrumbLink>
         </BreadcrumbItem>
       </Breadcrumb>

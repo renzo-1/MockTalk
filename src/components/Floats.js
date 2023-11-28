@@ -1,22 +1,19 @@
-import { Box, Image, useColorModeValue } from "@chakra-ui/react";
+import { Box, Image } from "@chakra-ui/react";
 import React from "react";
 import talking from "../assets/TalkingSticker.svg";
 const Floats = () => {
-  const gradient = useColorModeValue(
-    "linear-gradient(180deg, rgba(45,253,135,1) 34%, rgba(45,253,143,1) 66%, rgba(75,236,202,1) 100%)",
-    "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(56,147,58,1) 24%, rgba(119,214,119,1) 48%, rgba(78,147,78,1) 78%, rgba(23,57,23,1) 100%);"
-  );
+ 
   return (
     <Box
       w="100%"
       h="100%"
+      minH="600px"
       position="absolute"
       opacity="1"
       blur="10px"
       top="0"
       zIndex="10"
-      // bgImage={bg}
-      // bgGradient={gradient}
+      overflowY="hidden"
       className="rotateHue"
     >
       <Image

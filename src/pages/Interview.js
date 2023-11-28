@@ -22,7 +22,7 @@ const Interview = () => {
   const [isShowQuestion, setIsShowQuestion] = useState(false);
 
   const handleStart = () => {
-    if (currPage === "Fundamentals") {
+    if (currPage === "fundamentals") {
       setRandomQuestions(RandomPicker(QuestionsBank.fundamentals, 5));
     } else {
       setRandomQuestions(RandomPicker(QuestionsBank.technical, 5));
@@ -39,13 +39,15 @@ const Interview = () => {
     setIsDone(false);
     setAnswers([]);
   };
-
   const beforeStart = () => {
+    console.log(currPage);
+
+    if (!currPage) return <></>;
     return (
       <Stack spacing={{ base: "40" }}>
         <Instructions
           title={
-            currPage === "Fundamentals"
+            currPage === "fundamentals"
               ? "Fundmentals Interview"
               : "Technical Interview"
           }
